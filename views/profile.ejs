@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <%if(data== null){%>
+        <script>
+            window.location.href = '/login';
+        </script>
+    <%}else{%>
+
+    <h1 align="center">Wel Come <%=data.first_name %></h1><br />
+    <a style="margin: auto;" href="/update/<%=data.id%>"><button class="btn btn-primary">Update Profile</button></a>
+    <img style="float: right; margin-right: 200px;" src="<%=data.profile %>" width="100" />
+    <h3>First name: <%=data.first_name%></h4>
+    <h4>Last Name: <%=data.last_name%></h4> 
+    <h4>Email: <%=data.email%></h4>
+    <h4>Gender: <%=data.gender%></h4>
+    <h4 id="age"></h4>
+
+    <script>
+        let str = `<%=data.birthday%>`;
+        var date = new Date(str);
+        
+
+       let birthyear = date.getFullYear();
+       
+       var curr = new Date();
+       curr_year = curr.getFullYear();
+       let age = curr_year-birthyear;
+       document.getElementById('age').innerHTML = `Age: ${age}`;
+
+    </script>
+     
+    <a href="/logout"><button class="btn btn-lg btn-danger">logout</button></a>
+    <%}%>
+</body>
+</html>

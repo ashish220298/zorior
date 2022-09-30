@@ -1,0 +1,14 @@
+Database name: employee
+table name: users
+
+
+Folder structure
+1) Config/connect.js // here I code for mysql connection
+2) router/route.js  // here I defined All my route
+3) Views (inside this All my HTML templates available)
+app.js // this is the main file
+
+you have to run this command>>  "npm install"
+You need to import employee.sql to database
+
+Thank You
